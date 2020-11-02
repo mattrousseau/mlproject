@@ -1,0 +1,15 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from mlproject.distance import haversine
+from termcolor import colored
+
+import argparse
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--coords', nargs='+', required=False)
+    # parser.add_argument('coordinates', nargs='*')
+    args = parser.parse_args()
+    print(colored("###### Distance ######", "blue"))
+    print(colored(haversine(*[float(coord) for coord in args.coords]), 'red'))
